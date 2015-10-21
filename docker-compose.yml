@@ -1,0 +1,21 @@
+graphite:
+  image: graphite-docker
+  ports: 
+    - "80:80"
+    - "2003:2003"
+
+riemann:
+  image: riemann-docker
+  links:
+    - graphite
+  ports: 
+    - "5555:5555"
+
+host1:
+  image: collectd-docker
+  links: 
+    - riemann
+  #ports: 
+  #  - "8125:8125"
+  environment:
+    CONFIG_TYPE: riemann

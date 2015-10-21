@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp /etc/collectd/configs/collectd.riemann.conf /etc/collectd/collectd.conf
+
+collectd -f
