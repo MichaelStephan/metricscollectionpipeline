@@ -1,0 +1,2 @@
+* make URLs configurable (collecd -> riemann -> graphite) via environment variables
+* configure riemann properly
