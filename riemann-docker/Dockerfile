@@ -1,3 +1,4 @@
+▽
 FROM ubuntu
 
 # Install dependencies
@@ -16,7 +17,8 @@ EXPOSE 5556
 # Share the config directory as a volume
 VOLUME /etc/riemann
 ADD riemann.config /etc/riemann/riemann.config
-ADD riemann-extra-0.2.4.jar /opt/riemann/lib/riemann-extra-0.2.4.jar
+#ADD riemann-extra-0.2.10.jar /opt/riemann/lib/riemann-extra-0.2.10.jar
 
 # Set the hostname in /etc/hosts so that Riemann doesn't die due to unknownHostException
-CMD echo 127.0.0.1 $(hostname) >> /etc/hosts;export EXTRA_CLASSPATH=/opt/riemann/lib/riemann-extra-0.2.4.jar;/usr/bin/riemann /etc/riemann/riemann.config
+#export EXTRA_CLASSPATH=/opt/riemann/lib/riemann-extra-0.2.10.jar;
+CMD echo 127.0.0.1 $(hostname) >> /etc/hosts;/usr/bin/riemann /etc/riemann/riemann.config
